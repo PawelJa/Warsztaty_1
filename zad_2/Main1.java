@@ -1,20 +1,50 @@
 package zad_2;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class Main1 {
 	public static void main(String[] args) {
 		System.out.println("Podaj swoje liczby: ");
-		Scanner scan = new Scanner(System.in);
-		boolean e = true;
-		int[] tabUser = getNumbersFromUser();
-		System.out.println(Arrays.toString(tabUser));
-		int[] tabRandom = getRandomNumbers();
+		// Scanner scan = new Scanner(System.in);
+		// boolean e = true;
+		int[] arrUser = getNumbersFromUser();
+//		System.out.println(Arrays.toString(arrUser));
+		int[] arrRandom = getRandomNumbers();
+//		System.out.println(Arrays.toString(arrRandom));
+		int result = checkResult(arrUser, arrRandom);
+		if (result >= 3) {
+			System.out.println("Trafiłeś co najmniej trójkę !");
+		} else {
+			System.out.println("Nie trafiłeś nawet trójki");
+		}
 
 	}
+
 	public static int[] getRandomNumbers() {
-		Random rand = new Random
+		Integer[] arrRand = new Integer[49];
+		for (int i = 0; i < arrRand.length; i++) {
+			arrRand[i] = i+1;
+		}
+//		System.out.println(Arrays.toString(arrRand));
+		Collections.shuffle(Arrays.asList(arrRand));
+//		System.out.println(Arrays.toString(arrRand));
+		int[] newArrRandom = new int[6];
+		for (int i = 0; i < newArrRandom.length; i++) {
+			newArrRandom[i] = arrRand[i + 3];
+		}
+		return newArrRandom;
+	}
+
+	public static int checkResult(int[] arrU, int[] arrR) {
+		int count = 0;
+		for (int i = 0; i < arrU.length; i++) {
+			if (Arrays.asList(arrR).contains(arrU[i])) {
+				count++;
+			}
+		}
+		return count;
 	}
 
 	public static int[] getNumbersFromUser() {
