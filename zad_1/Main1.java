@@ -10,9 +10,11 @@ public class Main1 {
 		int a = r.nextInt(101);
 		// System.out.println(a);
 		System.out.println("Witaj w grze. Zgadnij liczbę z zakresu 0 - 100");
+//		System.out.println("Podaj swoją liczbę: ");
 		Scanner scan = new Scanner(System.in);
 		boolean e = true;
 		while (e == true) {
+			System.out.println("Podaj liczbę: ");
 			String str = scan.nextLine();
 			boolean isNmb = isNumeric(str);
 			// System.out.println(isNmb);
