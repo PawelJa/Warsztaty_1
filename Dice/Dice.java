@@ -1,9 +1,9 @@
-package zad_4;
+package Dice;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class Main1 {
+public class Dice {
 
 	public static void main(String[] args) {
 		System.out.println("Podaj kod kości w postaci xDy+z");
